@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liyue.blog.dao.TypeMapper">
+    <select id="getType" resultType="Type">
+        select id,name
+        from type_tb
+        where id = #{id}
+    </select>
+
+    <select id="getTypeByName" resultType="Type">
+        select id,name
+        from type_tb
+        where name = #{name}
+    </select>
+
+    <resultMap id="ListTypeMap" type="com.liyue.blog.entity.Type">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+
+        <collection property="blogs" ofType="com.liyue.blog.entity.Blog" column="id"
+                    select="com.liyue.blog.dao.BlogMapper.listBlogByTypeId">
+        </collection>
+    </resultMap>
+
+    <select id="listType" resultMap="ListTypeMap">
+        select id,name
+        from type_tb
+    </select>
+
+    <insert id="saveType" >
+        insert into type_tb(id,name,create_time) values(null,#{name},#{createTime})
+    </insert>
+
+    <update id="updateType">
+        update type_tb
+        set name = #{name},update_time=#{updateTime}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteType">
+        delete
+        from type_tb
+        where id = #{id}
+    </delete>
+
+</mapper>

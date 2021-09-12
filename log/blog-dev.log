@@ -1,0 +1,673 @@
+2021-08-24 00:50:50.635  INFO 10388 --- [main] com.liyue.blog.BlogApplication           : Starting BlogApplication on DESKTOP-AP6H11S with PID 10388 (D:\IntelliJ IDEA\代码\project\blog\target\classes started by woyigeren in D:\IntelliJ IDEA\代码\project\blog)
+2021-08-24 00:50:50.642  INFO 10388 --- [main] com.liyue.blog.BlogApplication           : The following profiles are active: dev
+2021-08-24 00:50:52.427  INFO 10388 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-24 00:50:52.438  INFO 10388 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-24 00:50:52.438  INFO 10388 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-08-24 00:50:52.535  INFO 10388 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring embedded WebApplicationContext
+2021-08-24 00:50:52.536  INFO 10388 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1833 ms
+2021-08-24 00:50:53.296  INFO 10388 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-24 00:50:53.424  INFO 10388 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-08-24 00:50:53.553  WARN 10388 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2021-08-24 00:50:53.739  INFO 10388 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/blog'
+2021-08-24 00:50:53.748  INFO 10388 --- [main] com.liyue.blog.BlogApplication           : Started BlogApplication in 3.555 seconds (JVM running for 4.016)
+2021-08-24 00:51:02.513  INFO 10388 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-24 00:51:02.515  INFO 10388 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-24 00:51:02.529  INFO 10388 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2021-08-24 00:51:02.561  INFO 10388 --- [http-nio-8080-exec-2] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.IndexController.toIndexPage', args=[1, {}]}
+2021-08-24 00:51:02.624  INFO 10388 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Starting...
+2021-08-24 00:51:07.903 ERROR 10388 --- [http-nio-8080-exec-2] com.zaxxer.hikari.pool.HikariPool        : defaultDataSource - Exception during pool initialization.
+
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:836) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:358) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:477) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:560) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-3.4.5.jar:na]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:158) ~[spring-jdbc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:116) ~[spring-jdbc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:79) ~[spring-jdbc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:80) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:67) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:337) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:86) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109) ~[mybatis-3.5.6.jar:3.5.6]
+	at com.github.pagehelper.PageInterceptor.executeAutoCount(PageInterceptor.java:201) ~[pagehelper-5.1.4.jar:na]
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:113) ~[pagehelper-5.1.4.jar:na]
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61) ~[mybatis-3.5.6.jar:3.5.6]
+	at com.sun.proxy.$Proxy94.query(Unknown Source) ~[na:na]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140) ~[mybatis-3.5.6.jar:3.5.6]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at com.sun.proxy.$Proxy66.selectList(Unknown Source) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:152) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:85) ~[mybatis-3.5.6.jar:3.5.6]
+	at com.sun.proxy.$Proxy67.listBlogWithPublished(Unknown Source) ~[na:na]
+	at com.liyue.blog.service.Impl.BlogServiceImpl.lambda$listBlogWithPublished$1(BlogServiceImpl.java:58) ~[classes/:na]
+	at com.github.pagehelper.Page.doSelectPage(Page.java:346) ~[pagehelper-5.1.4.jar:na]
+	at com.liyue.blog.service.Impl.BlogServiceImpl.listBlogWithPublished(BlogServiceImpl.java:58) ~[classes/:na]
+	at com.liyue.blog.service.Impl.BlogServiceImpl$$FastClassBySpringCGLIB$$80736b5b.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at com.liyue.blog.service.Impl.BlogServiceImpl$$EnhancerBySpringCGLIB$$b543ec3d.listBlogWithPublished(<generated>) ~[classes/:na]
+	at com.liyue.blog.controller.IndexController.toIndexPage(IndexController.java:36) ~[classes/:na]
+	at com.liyue.blog.controller.IndexController$$FastClassBySpringCGLIB$$55a52af9.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.aspectj.AspectJAfterAdvice.invoke(AspectJAfterAdvice.java:47) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at com.liyue.blog.controller.IndexController$$EnhancerBySpringCGLIB$$9e89226.toIndexPage(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.base/java.lang.Thread.run(Thread.java:835) ~[na:na]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[na:na]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:144) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:956) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:826) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	... 116 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method) ~[na:na]
+	at java.base/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:107) ~[na:na]
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399) ~[na:na]
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242) ~[na:na]
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:591) ~[na:na]
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	... 119 common frames omitted
+
+2021-08-24 00:51:07.909 ERROR 10388 --- [http-nio-8080-exec-2] com.liyue.blog.handler.ExceptionHandler  : Request URL : http://localhost:8080/blog/, Exception : {}
+
+org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+### The error may exist in file [D:\IntelliJ IDEA\代码\project\blog\target\classes\mybatis\mappers\BlogMapper.xml]
+### The error may involve com.liyue.blog.dao.BlogMapper.listBlogWithPublished_COUNT
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:96) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:441) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at com.sun.proxy.$Proxy66.selectList(Unknown Source) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:152) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:85) ~[mybatis-3.5.6.jar:3.5.6]
+	at com.sun.proxy.$Proxy67.listBlogWithPublished(Unknown Source) ~[na:na]
+	at com.liyue.blog.service.Impl.BlogServiceImpl.lambda$listBlogWithPublished$1(BlogServiceImpl.java:58) ~[classes/:na]
+	at com.github.pagehelper.Page.doSelectPage(Page.java:346) ~[pagehelper-5.1.4.jar:na]
+	at com.liyue.blog.service.Impl.BlogServiceImpl.listBlogWithPublished(BlogServiceImpl.java:58) ~[classes/:na]
+	at com.liyue.blog.service.Impl.BlogServiceImpl$$FastClassBySpringCGLIB$$80736b5b.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at com.liyue.blog.service.Impl.BlogServiceImpl$$EnhancerBySpringCGLIB$$b543ec3d.listBlogWithPublished(<generated>) ~[classes/:na]
+	at com.liyue.blog.controller.IndexController.toIndexPage(IndexController.java:36) ~[classes/:na]
+	at com.liyue.blog.controller.IndexController$$FastClassBySpringCGLIB$$55a52af9.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.aspectj.AspectJAfterAdvice.invoke(AspectJAfterAdvice.java:47) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691) ~[spring-aop-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at com.liyue.blog.controller.IndexController$$EnhancerBySpringCGLIB$$9e89226.toIndexPage(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.base/java.lang.Thread.run(Thread.java:835) ~[na:na]
+Caused by: org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+### The error may exist in file [D:\IntelliJ IDEA\代码\project\blog\target\classes\mybatis\mappers\BlogMapper.xml]
+### The error may involve com.liyue.blog.dao.BlogMapper.listBlogWithPublished_COUNT
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:149) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140) ~[mybatis-3.5.6.jar:3.5.6]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:427) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	... 84 common frames omitted
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:82) ~[spring-jdbc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:80) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:67) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:337) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:86) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156) ~[mybatis-3.5.6.jar:3.5.6]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109) ~[mybatis-3.5.6.jar:3.5.6]
+	at com.github.pagehelper.PageInterceptor.executeAutoCount(PageInterceptor.java:201) ~[pagehelper-5.1.4.jar:na]
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:113) ~[pagehelper-5.1.4.jar:na]
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61) ~[mybatis-3.5.6.jar:3.5.6]
+	at com.sun.proxy.$Proxy94.query(Unknown Source) ~[na:na]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147) ~[mybatis-3.5.6.jar:3.5.6]
+	... 90 common frames omitted
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:836) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:358) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:477) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:560) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-3.4.5.jar:na]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:158) ~[spring-jdbc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:116) ~[spring-jdbc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:79) ~[spring-jdbc-5.2.12.RELEASE.jar:5.2.12.RELEASE]
+	... 103 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[na:na]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:144) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:956) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:826) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	... 116 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method) ~[na:na]
+	at java.base/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:107) ~[na:na]
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399) ~[na:na]
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242) ~[na:na]
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:591) ~[na:na]
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63) ~[mysql-connector-java-8.0.22.jar:8.0.22]
+	... 119 common frames omitted
+
+2021-08-24 00:51:58.682  INFO 692 --- [main] com.liyue.blog.BlogApplication           : Starting BlogApplication on DESKTOP-AP6H11S with PID 692 (D:\IntelliJ IDEA\代码\project\blog\target\classes started by woyigeren in D:\IntelliJ IDEA\代码\project\blog)
+2021-08-24 00:51:58.685  INFO 692 --- [main] com.liyue.blog.BlogApplication           : The following profiles are active: dev
+2021-08-24 00:52:00.517  INFO 692 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-24 00:52:00.527  INFO 692 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-24 00:52:00.528  INFO 692 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-08-24 00:52:00.623  INFO 692 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring embedded WebApplicationContext
+2021-08-24 00:52:00.623  INFO 692 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1858 ms
+2021-08-24 00:52:01.318  INFO 692 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-24 00:52:01.429  INFO 692 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-08-24 00:52:01.519  WARN 692 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2021-08-24 00:52:01.788  INFO 692 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/blog'
+2021-08-24 00:52:01.795  INFO 692 --- [main] com.liyue.blog.BlogApplication           : Started BlogApplication in 3.547 seconds (JVM running for 3.96)
+2021-08-24 00:52:15.236  INFO 692 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-24 00:52:15.238  INFO 692 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-24 00:52:15.251  INFO 692 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2021-08-24 00:52:15.282  INFO 692 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.IndexController.toIndexPage', args=[1, {}]}
+2021-08-24 00:52:15.339  INFO 692 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Starting...
+2021-08-24 00:52:15.770  INFO 692 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Start completed.
+2021-08-24 00:52:15.952  INFO 692 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Result : index
+2021-08-24 00:52:17.019  INFO 692 --- [http-nio-8080-exec-6] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/about', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.AboutController.about', args=[]}
+2021-08-24 00:52:17.023  INFO 692 --- [http-nio-8080-exec-6] com.liyue.blog.aspect.ControllerAspect   : Result : about
+2021-08-24 00:53:06.001  INFO 692 --- [http-nio-8080-exec-9] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/about', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.AboutController.about', args=[]}
+2021-08-24 00:53:06.001  INFO 692 --- [http-nio-8080-exec-9] com.liyue.blog.aspect.ControllerAspect   : Result : about
+2021-08-24 00:53:26.537  INFO 692 --- [http-nio-8080-exec-3] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/about', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.AboutController.about', args=[]}
+2021-08-24 00:53:26.537  INFO 692 --- [http-nio-8080-exec-3] com.liyue.blog.aspect.ControllerAspect   : Result : about
+2021-08-24 00:53:58.242  INFO 692 --- [http-nio-8080-exec-5] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/about', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.AboutController.about', args=[]}
+2021-08-24 00:53:58.242  INFO 692 --- [http-nio-8080-exec-5] com.liyue.blog.aspect.ControllerAspect   : Result : about
+2021-08-24 00:54:09.496  INFO 692 --- [http-nio-8080-exec-7] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/about', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.AboutController.about', args=[]}
+2021-08-24 00:54:09.497  INFO 692 --- [http-nio-8080-exec-7] com.liyue.blog.aspect.ControllerAspect   : Result : about
+2021-08-24 00:55:52.080  INFO 692 --- [http-nio-8080-exec-2] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/search', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.IndexController.search', args=[1, t, {}]}
+2021-08-24 00:55:52.117  INFO 692 --- [http-nio-8080-exec-2] com.liyue.blog.aspect.ControllerAspect   : Result : search
+2021-08-24 00:58:11.092  INFO 692 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/search', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.IndexController.search', args=[1, t, {}]}
+2021-08-24 00:58:11.109  INFO 692 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Result : search
+2021-08-24 00:58:20.204  INFO 692 --- [http-nio-8080-exec-6] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/tags/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.TagController.tags', args=[-1, 1, {}]}
+2021-08-24 00:58:20.228  INFO 692 --- [http-nio-8080-exec-6] com.liyue.blog.aspect.ControllerAspect   : Result : tags
+2021-08-24 00:58:23.066  INFO 692 --- [http-nio-8080-exec-7] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.TypeController.types', args=[1, -1, {}]}
+2021-08-24 00:58:23.110  INFO 692 --- [http-nio-8080-exec-7] com.liyue.blog.aspect.ControllerAspect   : Result : types
+2021-08-24 00:58:28.233  INFO 692 --- [http-nio-8080-exec-8] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 00:58:28.247  INFO 692 --- [http-nio-8080-exec-8] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 00:58:47.458  INFO 692 --- [http-nio-8080-exec-9] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/tags/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.TagController.tags', args=[-1, 1, {}]}
+2021-08-24 00:58:47.477  INFO 692 --- [http-nio-8080-exec-9] com.liyue.blog.aspect.ControllerAspect   : Result : tags
+2021-08-24 00:58:51.136  INFO 692 --- [http-nio-8080-exec-4] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 00:58:51.143  INFO 692 --- [http-nio-8080-exec-4] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 00:58:55.576  INFO 692 --- [http-nio-8080-exec-2] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/tags/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.TagController.tags', args=[-1, 1, {}]}
+2021-08-24 00:58:55.598  INFO 692 --- [http-nio-8080-exec-2] com.liyue.blog.aspect.ControllerAspect   : Result : tags
+2021-08-24 00:58:57.264  INFO 692 --- [http-nio-8080-exec-10] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 00:58:57.270  INFO 692 --- [http-nio-8080-exec-10] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:00:00.880  INFO 692 --- [http-nio-8080-exec-5] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:00:00.884  INFO 692 --- [http-nio-8080-exec-5] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:00:06.074  INFO 692 --- [http-nio-8080-exec-7] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/about', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.AboutController.about', args=[]}
+2021-08-24 01:00:06.074  INFO 692 --- [http-nio-8080-exec-7] com.liyue.blog.aspect.ControllerAspect   : Result : about
+2021-08-24 01:00:09.273  INFO 692 --- [http-nio-8080-exec-8] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:00:09.280  INFO 692 --- [http-nio-8080-exec-8] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:03:17.516  INFO 12496 --- [main] com.liyue.blog.BlogApplication           : Starting BlogApplication on DESKTOP-AP6H11S with PID 12496 (D:\IntelliJ IDEA\代码\project\blog\target\classes started by woyigeren in D:\IntelliJ IDEA\代码\project\blog)
+2021-08-24 01:03:17.518  INFO 12496 --- [main] com.liyue.blog.BlogApplication           : The following profiles are active: dev
+2021-08-24 01:03:19.095  INFO 12496 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-24 01:03:19.105  INFO 12496 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-24 01:03:19.105  INFO 12496 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-08-24 01:03:19.185  INFO 12496 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring embedded WebApplicationContext
+2021-08-24 01:03:19.186  INFO 12496 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1582 ms
+2021-08-24 01:03:19.804  INFO 12496 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-24 01:03:19.902  INFO 12496 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-08-24 01:03:19.978  WARN 12496 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2021-08-24 01:03:20.172  INFO 12496 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/blog'
+2021-08-24 01:03:20.180  INFO 12496 --- [main] com.liyue.blog.BlogApplication           : Started BlogApplication in 3.006 seconds (JVM running for 3.372)
+2021-08-24 01:03:32.535  INFO 12496 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-24 01:03:32.536  INFO 12496 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-24 01:03:32.551  INFO 12496 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2021-08-24 01:03:32.580  INFO 12496 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:03:32.610  INFO 12496 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Starting...
+2021-08-24 01:03:32.904  INFO 12496 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Start completed.
+2021-08-24 01:03:32.951  INFO 12496 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:04:57.051  INFO 12496 --- [http-nio-8080-exec-5] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:04:57.061  INFO 12496 --- [http-nio-8080-exec-5] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:06:27.007  INFO 14648 --- [main] com.liyue.blog.BlogApplication           : Starting BlogApplication on DESKTOP-AP6H11S with PID 14648 (D:\IntelliJ IDEA\代码\project\blog\target\classes started by woyigeren in D:\IntelliJ IDEA\代码\project\blog)
+2021-08-24 01:06:27.010  INFO 14648 --- [main] com.liyue.blog.BlogApplication           : The following profiles are active: dev
+2021-08-24 01:06:28.615  INFO 14648 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-24 01:06:28.624  INFO 14648 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-24 01:06:28.625  INFO 14648 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-08-24 01:06:28.699  INFO 14648 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring embedded WebApplicationContext
+2021-08-24 01:06:28.700  INFO 14648 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1623 ms
+2021-08-24 01:06:29.325  INFO 14648 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-24 01:06:29.427  INFO 14648 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-08-24 01:06:29.507  WARN 14648 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2021-08-24 01:06:29.712  INFO 14648 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/blog'
+2021-08-24 01:06:29.720  INFO 14648 --- [main] com.liyue.blog.BlogApplication           : Started BlogApplication in 3.062 seconds (JVM running for 3.391)
+2021-08-24 01:06:34.635  INFO 14648 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-24 01:06:34.637  INFO 14648 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-24 01:06:34.652  INFO 14648 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2021-08-24 01:06:34.675  INFO 14648 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:06:34.705  INFO 14648 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Starting...
+2021-08-24 01:06:34.984  INFO 14648 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Start completed.
+2021-08-24 01:06:35.035  INFO 14648 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:06:39.089  INFO 14648 --- [http-nio-8080-exec-4] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:06:39.102  INFO 14648 --- [http-nio-8080-exec-4] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:07:07.805  INFO 15064 --- [main] com.liyue.blog.BlogApplication           : Starting BlogApplication on DESKTOP-AP6H11S with PID 15064 (D:\IntelliJ IDEA\代码\project\blog\target\classes started by woyigeren in D:\IntelliJ IDEA\代码\project\blog)
+2021-08-24 01:07:07.808  INFO 15064 --- [main] com.liyue.blog.BlogApplication           : The following profiles are active: dev
+2021-08-24 01:07:09.413  INFO 15064 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-24 01:07:09.423  INFO 15064 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-24 01:07:09.423  INFO 15064 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-08-24 01:07:09.503  INFO 15064 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring embedded WebApplicationContext
+2021-08-24 01:07:09.503  INFO 15064 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1626 ms
+2021-08-24 01:07:10.134  INFO 15064 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-24 01:07:10.236  INFO 15064 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-08-24 01:07:10.313  WARN 15064 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2021-08-24 01:07:10.514  INFO 15064 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/blog'
+2021-08-24 01:07:10.522  INFO 15064 --- [main] com.liyue.blog.BlogApplication           : Started BlogApplication in 3.069 seconds (JVM running for 3.416)
+2021-08-24 01:07:13.761  INFO 15064 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-24 01:07:13.763  INFO 15064 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-24 01:07:13.779  INFO 15064 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2021-08-24 01:07:13.807  INFO 15064 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:07:13.838  INFO 15064 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Starting...
+2021-08-24 01:07:14.132  INFO 15064 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Start completed.
+2021-08-24 01:07:14.182  INFO 15064 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:09:50.382  INFO 7392 --- [main] com.liyue.blog.BlogApplication           : Starting BlogApplication on DESKTOP-AP6H11S with PID 7392 (D:\IntelliJ IDEA\代码\project\blog\target\classes started by woyigeren in D:\IntelliJ IDEA\代码\project\blog)
+2021-08-24 01:09:50.385  INFO 7392 --- [main] com.liyue.blog.BlogApplication           : The following profiles are active: dev
+2021-08-24 01:09:52.004  INFO 7392 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-24 01:09:52.015  INFO 7392 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-24 01:09:52.015  INFO 7392 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-08-24 01:09:52.094  INFO 7392 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring embedded WebApplicationContext
+2021-08-24 01:09:52.095  INFO 7392 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1639 ms
+2021-08-24 01:09:52.719  INFO 7392 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-24 01:09:52.824  INFO 7392 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-08-24 01:09:52.905  WARN 7392 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2021-08-24 01:09:53.107  INFO 7392 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/blog'
+2021-08-24 01:09:53.115  INFO 7392 --- [main] com.liyue.blog.BlogApplication           : Started BlogApplication in 3.094 seconds (JVM running for 3.432)
+2021-08-24 01:10:02.987  INFO 7392 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-24 01:10:02.988  INFO 7392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-24 01:10:03.004  INFO 7392 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 15 ms
+2021-08-24 01:10:03.029  INFO 7392 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:10:03.060  INFO 7392 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Starting...
+2021-08-24 01:10:03.352  INFO 7392 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Start completed.
+2021-08-24 01:10:03.408  INFO 7392 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:10:06.816  INFO 7392 --- [http-nio-8080-exec-3] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:10:06.828  INFO 7392 --- [http-nio-8080-exec-3] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:10:12.144  INFO 7392 --- [http-nio-8080-exec-6] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:10:12.154  INFO 7392 --- [http-nio-8080-exec-6] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:13:55.651  INFO 2104 --- [main] com.liyue.blog.BlogApplication           : Starting BlogApplication on DESKTOP-AP6H11S with PID 2104 (D:\IntelliJ IDEA\代码\project\blog\target\classes started by woyigeren in D:\IntelliJ IDEA\代码\project\blog)
+2021-08-24 01:13:55.656  INFO 2104 --- [main] com.liyue.blog.BlogApplication           : The following profiles are active: dev
+2021-08-24 01:13:57.205  INFO 2104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-24 01:13:57.214  INFO 2104 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-24 01:13:57.215  INFO 2104 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-08-24 01:13:57.293  INFO 2104 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring embedded WebApplicationContext
+2021-08-24 01:13:57.293  INFO 2104 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1561 ms
+2021-08-24 01:13:57.904  INFO 2104 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-24 01:13:58.004  INFO 2104 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-08-24 01:13:58.087  WARN 2104 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2021-08-24 01:13:58.282  INFO 2104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/blog'
+2021-08-24 01:13:58.290  INFO 2104 --- [main] com.liyue.blog.BlogApplication           : Started BlogApplication in 2.981 seconds (JVM running for 3.332)
+2021-08-24 01:14:02.586  INFO 2104 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-24 01:14:02.587  INFO 2104 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-24 01:14:02.601  INFO 2104 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2021-08-24 01:14:02.627  INFO 2104 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:14:02.655  INFO 2104 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Starting...
+2021-08-24 01:14:02.952  INFO 2104 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Start completed.
+2021-08-24 01:14:03.009  INFO 2104 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:14:27.518  INFO 444 --- [main] com.liyue.blog.BlogApplication           : Starting BlogApplication on DESKTOP-AP6H11S with PID 444 (D:\IntelliJ IDEA\代码\project\blog\target\classes started by woyigeren in D:\IntelliJ IDEA\代码\project\blog)
+2021-08-24 01:14:27.524  INFO 444 --- [main] com.liyue.blog.BlogApplication           : The following profiles are active: dev
+2021-08-24 01:14:29.064  INFO 444 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-24 01:14:29.075  INFO 444 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-24 01:14:29.075  INFO 444 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-08-24 01:14:29.148  INFO 444 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring embedded WebApplicationContext
+2021-08-24 01:14:29.149  INFO 444 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1548 ms
+2021-08-24 01:14:29.762  INFO 444 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-24 01:14:29.862  INFO 444 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-08-24 01:14:29.939  WARN 444 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2021-08-24 01:14:30.138  INFO 444 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/blog'
+2021-08-24 01:14:30.146  INFO 444 --- [main] com.liyue.blog.BlogApplication           : Started BlogApplication in 2.966 seconds (JVM running for 3.297)
+2021-08-24 01:14:34.620  INFO 444 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-24 01:14:34.622  INFO 444 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-24 01:14:34.636  INFO 444 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2021-08-24 01:14:34.660  INFO 444 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:14:34.692  INFO 444 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Starting...
+2021-08-24 01:14:34.962  INFO 444 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Start completed.
+2021-08-24 01:14:35.008  INFO 444 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:15:51.444  INFO 2392 --- [main] com.liyue.blog.BlogApplication           : Starting BlogApplication on DESKTOP-AP6H11S with PID 2392 (D:\IntelliJ IDEA\代码\project\blog\target\classes started by woyigeren in D:\IntelliJ IDEA\代码\project\blog)
+2021-08-24 01:15:51.446  INFO 2392 --- [main] com.liyue.blog.BlogApplication           : The following profiles are active: dev
+2021-08-24 01:15:53.001  INFO 2392 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-24 01:15:53.011  INFO 2392 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-24 01:15:53.011  INFO 2392 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-08-24 01:15:53.089  INFO 2392 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring embedded WebApplicationContext
+2021-08-24 01:15:53.089  INFO 2392 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1576 ms
+2021-08-24 01:15:53.694  INFO 2392 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-24 01:15:53.793  INFO 2392 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-08-24 01:15:53.869  WARN 2392 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2021-08-24 01:15:54.065  INFO 2392 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/blog'
+2021-08-24 01:15:54.073  INFO 2392 --- [main] com.liyue.blog.BlogApplication           : Started BlogApplication in 3.0 seconds (JVM running for 3.364)
+2021-08-24 01:16:10.358  INFO 8064 --- [main] com.liyue.blog.BlogApplication           : Starting BlogApplication on DESKTOP-AP6H11S with PID 8064 (D:\IntelliJ IDEA\代码\project\blog\target\classes started by woyigeren in D:\IntelliJ IDEA\代码\project\blog)
+2021-08-24 01:16:10.360  INFO 8064 --- [main] com.liyue.blog.BlogApplication           : The following profiles are active: dev
+2021-08-24 01:16:11.921  INFO 8064 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-24 01:16:11.932  INFO 8064 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-24 01:16:11.932  INFO 8064 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-08-24 01:16:12.006  INFO 8064 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring embedded WebApplicationContext
+2021-08-24 01:16:12.007  INFO 8064 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1565 ms
+2021-08-24 01:16:12.631  INFO 8064 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-24 01:16:12.734  INFO 8064 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-08-24 01:16:12.810  WARN 8064 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2021-08-24 01:16:13.004  INFO 8064 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/blog'
+2021-08-24 01:16:13.012  INFO 8064 --- [main] com.liyue.blog.BlogApplication           : Started BlogApplication in 3.032 seconds (JVM running for 3.383)
+2021-08-24 01:16:16.108  INFO 8064 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-24 01:16:16.110  INFO 8064 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-24 01:16:16.127  INFO 8064 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 17 ms
+2021-08-24 01:16:16.153  INFO 8064 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:16:16.186  INFO 8064 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Starting...
+2021-08-24 01:16:16.458  INFO 8064 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Start completed.
+2021-08-24 01:16:16.514  INFO 8064 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:16:30.090  INFO 7396 --- [main] com.liyue.blog.BlogApplication           : Starting BlogApplication on DESKTOP-AP6H11S with PID 7396 (D:\IntelliJ IDEA\代码\project\blog\target\classes started by woyigeren in D:\IntelliJ IDEA\代码\project\blog)
+2021-08-24 01:16:30.092  INFO 7396 --- [main] com.liyue.blog.BlogApplication           : The following profiles are active: dev
+2021-08-24 01:16:31.761  INFO 7396 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-24 01:16:31.772  INFO 7396 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-24 01:16:31.773  INFO 7396 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-08-24 01:16:31.853  INFO 7396 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring embedded WebApplicationContext
+2021-08-24 01:16:31.853  INFO 7396 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1696 ms
+2021-08-24 01:16:32.590  INFO 7396 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-24 01:16:32.690  INFO 7396 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-08-24 01:16:32.770  WARN 7396 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2021-08-24 01:16:32.990  INFO 7396 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/blog'
+2021-08-24 01:16:33.000  INFO 7396 --- [main] com.liyue.blog.BlogApplication           : Started BlogApplication in 3.334 seconds (JVM running for 3.71)
+2021-08-24 01:16:39.534  INFO 7396 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-24 01:16:39.535  INFO 7396 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-24 01:16:39.549  INFO 7396 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2021-08-24 01:16:39.581  INFO 7396 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.IndexController.toIndexPage', args=[1, {}]}
+2021-08-24 01:16:39.637  INFO 7396 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Starting...
+2021-08-24 01:16:39.912  INFO 7396 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Start completed.
+2021-08-24 01:16:40.056  INFO 7396 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Result : index
+2021-08-24 01:16:41.808  INFO 7396 --- [http-nio-8080-exec-4] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:16:41.822  INFO 7396 --- [http-nio-8080-exec-4] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:18:19.697  INFO 7396 --- [http-nio-8080-exec-7] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:18:19.704  INFO 7396 --- [http-nio-8080-exec-7] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:20:09.959  INFO 7396 --- [http-nio-8080-exec-9] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:20:09.968  INFO 7396 --- [http-nio-8080-exec-9] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:21:06.770  INFO 11180 --- [main] com.liyue.blog.BlogApplication           : Starting BlogApplication on DESKTOP-AP6H11S with PID 11180 (D:\IntelliJ IDEA\代码\project\blog\target\classes started by woyigeren in D:\IntelliJ IDEA\代码\project\blog)
+2021-08-24 01:21:06.772  INFO 11180 --- [main] com.liyue.blog.BlogApplication           : The following profiles are active: dev
+2021-08-24 01:21:08.340  INFO 11180 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-24 01:21:08.351  INFO 11180 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-24 01:21:08.352  INFO 11180 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-08-24 01:21:08.455  INFO 11180 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring embedded WebApplicationContext
+2021-08-24 01:21:08.456  INFO 11180 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1632 ms
+2021-08-24 01:21:09.239  INFO 11180 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-24 01:21:09.375  INFO 11180 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-08-24 01:21:09.456  WARN 11180 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2021-08-24 01:21:09.679  INFO 11180 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/blog'
+2021-08-24 01:21:09.687  INFO 11180 --- [main] com.liyue.blog.BlogApplication           : Started BlogApplication in 3.3 seconds (JVM running for 4.691)
+2021-08-24 01:21:12.930  INFO 11180 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-24 01:21:12.932  INFO 11180 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-24 01:21:12.948  INFO 11180 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 16 ms
+2021-08-24 01:21:12.976  INFO 11180 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:21:13.006  INFO 11180 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Starting...
+2021-08-24 01:21:13.354  INFO 11180 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Start completed.
+2021-08-24 01:24:05.391  WARN 11180 --- [defaultDataSource housekeeper] com.zaxxer.hikari.pool.HikariPool        : defaultDataSource - Thread starvation or clock leap detected (housekeeper delta=3m22s38ms121µs100ns).
+2021-08-24 01:24:05.397  INFO 11180 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:24:05.882  INFO 11180 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-08-24 01:24:05.883  INFO 11180 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Shutdown initiated...
+2021-08-24 01:24:05.915  INFO 11180 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Shutdown completed.
+2021-08-24 01:24:07.737  INFO 10372 --- [main] com.liyue.blog.BlogApplication           : Starting BlogApplication on DESKTOP-AP6H11S with PID 10372 (D:\IntelliJ IDEA\代码\project\blog\target\classes started by woyigeren in D:\IntelliJ IDEA\代码\project\blog)
+2021-08-24 01:24:07.739  INFO 10372 --- [main] com.liyue.blog.BlogApplication           : The following profiles are active: dev
+2021-08-24 01:24:09.296  INFO 10372 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-24 01:24:09.305  INFO 10372 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-24 01:24:09.306  INFO 10372 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-08-24 01:24:09.381  INFO 10372 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring embedded WebApplicationContext
+2021-08-24 01:24:09.382  INFO 10372 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1574 ms
+2021-08-24 01:24:09.991  INFO 10372 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-24 01:24:10.090  INFO 10372 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-08-24 01:24:10.165  WARN 10372 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2021-08-24 01:24:10.362  INFO 10372 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/blog'
+2021-08-24 01:24:10.370  INFO 10372 --- [main] com.liyue.blog.BlogApplication           : Started BlogApplication in 2.974 seconds (JVM running for 3.336)
+2021-08-24 01:24:13.675  INFO 10372 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-24 01:24:13.677  INFO 10372 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-24 01:24:13.689  INFO 10372 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2021-08-24 01:24:13.713  INFO 10372 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:24:13.740  INFO 10372 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Starting...
+2021-08-24 01:24:14.031  INFO 10372 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Start completed.
+2021-08-24 01:24:14.082  INFO 10372 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:24:25.845  INFO 15180 --- [main] com.liyue.blog.BlogApplication           : Starting BlogApplication on DESKTOP-AP6H11S with PID 15180 (D:\IntelliJ IDEA\代码\project\blog\target\classes started by woyigeren in D:\IntelliJ IDEA\代码\project\blog)
+2021-08-24 01:24:25.846  INFO 15180 --- [main] com.liyue.blog.BlogApplication           : The following profiles are active: dev
+2021-08-24 01:24:27.376  INFO 15180 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-24 01:24:27.385  INFO 15180 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-24 01:24:27.386  INFO 15180 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-08-24 01:24:27.460  INFO 15180 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring embedded WebApplicationContext
+2021-08-24 01:24:27.461  INFO 15180 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1557 ms
+2021-08-24 01:24:28.070  INFO 15180 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-24 01:24:28.167  INFO 15180 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-08-24 01:24:28.243  WARN 15180 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2021-08-24 01:24:28.442  INFO 15180 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/blog'
+2021-08-24 01:24:28.449  INFO 15180 --- [main] com.liyue.blog.BlogApplication           : Started BlogApplication in 2.949 seconds (JVM running for 3.32)
+2021-08-24 01:24:30.739  INFO 15180 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-24 01:24:30.741  INFO 15180 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-24 01:24:30.755  INFO 15180 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2021-08-24 01:24:30.779  INFO 15180 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:24:30.808  INFO 15180 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Starting...
+2021-08-24 01:24:31.109  INFO 15180 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Start completed.
+2021-08-24 01:24:31.157  INFO 15180 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:25:06.602  INFO 9256 --- [main] com.liyue.blog.BlogApplication           : Starting BlogApplication on DESKTOP-AP6H11S with PID 9256 (D:\IntelliJ IDEA\代码\project\blog\target\classes started by woyigeren in D:\IntelliJ IDEA\代码\project\blog)
+2021-08-24 01:25:06.606  INFO 9256 --- [main] com.liyue.blog.BlogApplication           : The following profiles are active: dev
+2021-08-24 01:25:08.240  INFO 9256 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-24 01:25:08.252  INFO 9256 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-24 01:25:08.253  INFO 9256 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-08-24 01:25:08.339  INFO 9256 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring embedded WebApplicationContext
+2021-08-24 01:25:08.339  INFO 9256 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1668 ms
+2021-08-24 01:25:08.989  INFO 9256 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-24 01:25:09.092  INFO 9256 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-08-24 01:25:09.188  WARN 9256 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2021-08-24 01:25:09.421  INFO 9256 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/blog'
+2021-08-24 01:25:09.429  INFO 9256 --- [main] com.liyue.blog.BlogApplication           : Started BlogApplication in 3.168 seconds (JVM running for 3.496)
+2021-08-24 01:25:50.265  INFO 9256 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/blog]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-24 01:25:50.266  INFO 9256 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-24 01:25:50.279  INFO 9256 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2021-08-24 01:25:50.308  INFO 9256 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:25:50.337  INFO 9256 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Starting...
+2021-08-24 01:25:50.615  INFO 9256 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : defaultDataSource - Start completed.
+2021-08-24 01:25:50.674  INFO 9256 --- [http-nio-8080-exec-1] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:26:24.841  INFO 9256 --- [http-nio-8080-exec-3] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:26:24.857  INFO 9256 --- [http-nio-8080-exec-3] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:26:49.178  INFO 9256 --- [http-nio-8080-exec-5] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:26:49.189  INFO 9256 --- [http-nio-8080-exec-5] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:26:57.530  INFO 9256 --- [http-nio-8080-exec-8] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:26:57.540  INFO 9256 --- [http-nio-8080-exec-8] com.liyue.blog.aspect.ControllerAspect   : Result : archives
+2021-08-24 01:27:52.983  INFO 9256 --- [http-nio-8080-exec-10] com.liyue.blog.aspect.ControllerAspect   : Request : RequestLog{url='http://localhost:8080/blog/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.liyue.blog.controller.ArchiveController.archives', args=[{}]}
+2021-08-24 01:27:52.989  INFO 9256 --- [http-nio-8080-exec-10] com.liyue.blog.aspect.ControllerAspect   : Result : archives

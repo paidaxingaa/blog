@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liyue.blog.dao.BlogTagMapper">
+
+    <!--根据blog_id查询所有Tag-->
+    <resultMap id="TagByBlog" type="com.liyue.blog.entity.Tag">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+    </resultMap>
+    <select id="getTagByBlogId" resultMap="TagByBlog">
+        select t.id,t.name
+        from blog_tag_tb bt,tag_tb t
+        where bt.tag_id = t.id and bt.blog_id = #{blog_id}
+    </select>
+
+    <!--根据tag_id查询所有blog-->
+    <resultMap id="BlogByTag" type="com.liyue.blog.entity.Blog">
+        <id column="id" property="id"></id>
+        <result column="title" property="title"></result>
+        <result column="content" property="content"></result>
+        <result column="first_picture" property="firstPicture"></result>
+        <result column="flag" property="flag"></result>
+        <result column="views" property="views"></result>
+        <result column="appreciation" property="appreciation"></result>
+        <result column="share_statement" property="shareStatement"></result>
+        <result column="commentable" property="commentable"></result>
+        <result column="published" property="published"></result>
+        <result column="recommend" property="recommend"></result>
+    </resultMap>
+    <select id="getBlogByTagId" resultMap="BlogByTag">
+        select b.*
+        from blog_tag_tb bt,blog_tb b
+        where bt.blog_id = b.id and bt.tag_id = #{tag_id}
+    </select>
+
+    <insert id="saveBlogWithTagId">
+        insert
+        into blog_tag_tb(id,blog_id,tag_id)
+        values
+        <foreach collection="list" item="tag" separator=",">
+            (null,#{blog_id},#{tag.id})
+        </foreach>
+
+    </insert>
+    <delete id="deleteTagByBlogId">
+        delete
+        from blog_tag_tb
+        where blog_id = #{blog_id}
+    </delete>
+</mapper>

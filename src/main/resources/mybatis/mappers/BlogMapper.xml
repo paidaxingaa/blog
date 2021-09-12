@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liyue.blog.dao.BlogMapper">
+    <select id="getBlog" resultMap="ListBlogMap">
+        select *
+        from blog_tb b,user_tb u,type_tb t
+        where b.user_id = u.id and b.type_id = t.id and b.id = #{id}
+    </select>
+
+    <resultMap id="ListBlogMap" type="com.liyue.blog.entity.Blog">
+        <id column="id" property="id"></id>
+        <result column="title" property="title"></result>
+        <result column="content" property="content"></result>
+        <result column="first_picture" property="firstPicture"></result>
+        <result column="flag" property="flag"></result>
+        <result column="views" property="views"></result>
+        <result column="appreciation" property="appreciation"></result>
+        <result column="share_statement" property="shareStatement"></result>
+        <result column="commentable" property="commentable"></result>
+        <result column="published" property="published"></result>
+        <result column="recommend" property="recommend"></result>
+        <result column="description" property="description"></result>
+        <result column="update_time" property="updateTime"></result>
+
+        <association property="user" javaType="com.liyue.blog.entity.User">
+            <id column="user_id" property="id"></id>
+            <result column="username" property="username"></result>
+            <result column="nickname" property="nickname"></result>
+            <result column="avatar" property="avatar"></result>
+        </association>
+
+        <association property="type" javaType="com.liyue.blog.entity.Type">
+            <id column="type_id" property="id"></id>
+            <result column="name" property="name"></result>
+        </association>
+
+        <collection property="tags" ofType="com.liyue.blog.entity.Tag" column="id"
+                    select="com.liyue.blog.dao.BlogTagMapper.getTagByBlogId" >
+        </collection>
+
+        <collection property="comments" ofType="com.liyue.blog.entity.Comment" column="id"
+                    select="com.liyue.blog.dao.CommentMapper.listCommentByBlogId">
+
+        </collection>
+    </resultMap>
+
+    <select id="listBlog" resultMap="ListBlogMap">
+        select	*
+        from blog_tb b join user_tb u on b.user_id = u.id
+                        join type_tb t on b.type_id = t.id
+        <where>
+            <if test="title != null and title != ''">
+                b.title like concat('%',#{title},'%')
+            </if>
+            <if test="recommend">
+                and b.recommend
+            </if>
+            <if test="typeId != null">
+                and b.type_id = #{typeId}
+            </if>
+        </where>
+    </select>
+
+    <select id="listBlogWithPublished" resultMap="ListBlogMap">
+        select	*
+        from blog_tb b join user_tb u on b.user_id = u.id
+                        join type_tb t on b.type_id = t.id
+        where b.published
+    </select>
+
+    <select id="listBlogWithPublishedAndRecommended" resultMap="ListBlogMap">
+        select	*
+        from blog_tb b join user_tb u on b.user_id = u.id
+        join type_tb t on b.type_id = t.id
+        where b.published and b.recommend
+    </select>
+
+    <select id="listBlogByQuery" resultMap="ListBlogMap">
+        select	*
+        from blog_tb b join user_tb u on b.user_id = u.id
+                        join type_tb t on b.type_id = t.id
+        <where>
+            <if test="query != null and query != ''">
+                b.title like concat('%',#{query},'%')
+            </if>
+            <if test="query != null and query != ''">
+                or b.content like concat('%',#{query},'%')
+            </if>
+        </where>
+    </select>
+
+    <select id="listBlogByTypeId" resultMap="ListBlogMap">
+        select	*
+        from blog_tb b join user_tb u on b.user_id = u.id
+                        join type_tb t on b.type_id = t.id
+        where b.type_id = #{type_id}
+    </select>
+
+    <select id="listBlogByIdList" resultMap="ListBlogMap">
+        select	*
+        from blog_tb b join user_tb u on b.user_id = u.id
+                        join type_tb t on b.type_id = t.id
+        where b.id in
+        <foreach collection="list" item="blog_id" separator="," open="(" close=")">
+            #{blog_id}
+        </foreach>
+    </select>
+    
+    <select id="getYears" resultType="java.lang.String">
+        select DATE_FORMAT(b.update_time,'%Y-%m') year
+        from blog_tb b
+        group by year
+        order by year desc
+    </select>
+    
+    <select id="listBlogByYear" resultType="Blog">
+        select *
+        from blog_tb b
+        where DATE_FORMAT(b.update_time,'%Y-%m') = #{year} and published
+        order by update_time desc
+    </select>
+
+    <select id="getBlogCount" resultType="java.lang.Integer">
+        select count(id)
+        from blog_tb
+        where published
+    </select>
+
+    <insert id="saveBlog">
+        <selectKey keyProperty="id" resultType="Long">
+            select LAST_INSERT_ID()
+        </selectKey>
+        insert
+        into blog_tb(id,title,content,first_picture,flag,views,appreciation,share_statement,commentable,published,recommend,user_id,type_id,create_time,description)
+        values(null,#{title},#{content},#{firstPicture},#{flag},#{views},#{appreciation},#{shareStatement},#{commentable},#{published},#{recommend},#{user.id},#{type.id},#{createTime},#{description})
+    </insert>
+
+    <update id="updateBlog">
+        update blog_tb
+        set title=#{title},content=#{content},first_picture=#{firstPicture},flag=#{flag},views=#{views}
+            ,appreciation=#{appreciation},share_statement=#{shareStatement},commentable=#{commentable},published=#{published}
+            ,recommend=#{recommend},user_id=#{user.id},type_id=#{type.id},update_time=#{updateTime},description=#{description}
+        where id = #{id}
+    </update>
+
+    <update id="updateViews">
+        update blog_tb
+        set views = views + 1
+        where id = #{id}
+    </update>
+
+    <delete id="deleteBlog">
+        delete
+        from blog_tb
+        where id = #{id}
+    </delete>
+</mapper>
